@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ASG 4</title>
+
+        <!-- Load external libs -->
+        <script src="lib/cuon-matrix-cse160.js"></script>
+        <script src="lib/cuon-utils.js"></script>
+        <script src="lib/webgl-debug.js"></script>
+        <script src="lib/webgl-utils.js"></script>
+
+        <!-- Load internal libs -->
+        <script src="keydrown.js"></script>
+        <script src="camera.js"></script>
+        <script src="cylinder.js"></script>
+        <script src="models/model.js"></script>
+        <script src="models/cube.js"></script>
+        <script src="models/sphere.js"></script>
+
+        <!-- Load main -->
+        <script src="shooter.js"></script>
+    </head>
+
+    <body onload="main()">
+
+        <div style="position: relative;">
+
+            <canvas id="canvas" width="400" height="400" style="position: absolute; 
+                                                                z-index: 0"  
+                                                                
+                                                                onclick="mouseLock()"></canvas>
+            <canvas id="layer2" width="400" height="400" 
+                style="background: url('deagnox.png');position: absolute; z-index: 1;" onclick="mouseLock()"></canvas>
+            <script>
+                var canvas = document.getElementById("layer2");
+                var context = canvas.getContext("2d");
+
+                // center
+                var x = canvas.width / 2;
+                var y = canvas.height / 2;
+
+                // remove aliasing
+                x = Math.floor(x) + 0.5;
+                y = Math.floor(y) + 0.5;
+                context.strokeWidth = 1;
+
+                context.moveTo(x, y - 10);
+                context.lineTo(x, y + 10);
+
+                context.moveTo(x - 10,  y);
+                context.lineTo(x + 10,  y);
+
+                // Line color
+                context.strokeStyle = 'limegreen';
+                context.lineWidth = 2;
+
+                context.stroke();
+            </script>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div>
+            <br>Hit the red targets!<br><br>
+            <label>Mouse Sensitivity:</label>
+            <input id="mouse_sens" value="7" type="range" min="1" max="20" onchange="changeSensitivity(this.value)"></input>
+
+            <br><br>
+            <label>FOV:</label>
+            <input id="zoom" value="-60" type="range" min="-150" max="-30" oninput="camera.zoom(-this.value)"></input>
+        </div>
+    </body>
+</html>
