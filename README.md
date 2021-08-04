@@ -1,5 +1,5 @@
 # target-practice
-Target practice FPS minigame using WebGL
+Target practice FPS minigame using WebGL    https://arthurmois.github.io/target-practice/
 
 A minigame utilizing VERTEX and FRAGMENT shaders to build MVP environment with, rendering, lighting, shading.
 As well as camera movement and "shooting" functionality using vector/matrix arithmetic.
